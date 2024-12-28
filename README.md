@@ -1,46 +1,166 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokedex Lite Web Application
 
-## Available Scripts
+## Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Folder Structure](#folder-structure)
+5. [Setup and Installation](#setup-and-installation)
+6. [Components and Files](#components-and-files)
+    - [Components](#components)
+    - [Pages](#pages)
+    - [Services](#services)
+    - [Utils](#utils)
+    - [Hooks](#hooks)
+7. [Running the Application](#running-the-application)
+8. [Future Enhancements](#future-enhancements)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Overview
+Pokedex Lite is a responsive web application that allows users to explore Pokémon data using the public **PokéAPI**. Users can search, filter, paginate, view details, and mark their favorite Pokémon.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
+- List Pokémon fetched from PokéAPI.
+- Search Pokémon by name.
+- Filter Pokémon by type.
+- Pagination for smooth navigation.
+- Favorite Pokémon functionality persisted in local storage.
+- Detailed Pokémon view with stats and abilities.
+- Fully responsive UI (mobile, tablet, and desktop).
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
+- **Frontend Framework**: React.js with TypeScript
+- **Styling**: Tailwind CSS
+- **API Handling**: Axios
+- **Routing**: React Router DOM
+- **State Management**: React hooks
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Folder Structure
+```
+src/
+├── components/       # Reusable components
+│   ├── PokemonCard.tsx
+│   ├── Header.tsx
+│   ├── Pagination.tsx
+├── pages/            # Page components
+│   ├── Home.tsx
+│   ├── PokemonDetails.tsx
+├── services/         # API-related code
+│   └── pokemonAPI.ts
+├── utils/            # Utility functions
+│   ├── localStorage.ts
+├── hooks/            # Custom hooks
+│   └── useFetchPokemon.ts
+├── App.tsx           # Main component
+├── index.tsx         # Entry point
+└── styles/           # Styling files
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup and Installation
 
-### `npm run eject`
+### Prerequisites
+- Node.js (v14 or above)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Steps
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd pokedex-lite
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Run the development server**:
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+4. **Build the application for production** (optional):
+   ```bash
+   npm run build
+   ```
 
-## Learn More
+5. Open the application in your browser at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Components and Files
+
+### Components
+#### `PokemonCard.tsx`
+Displays Pokémon name and image. Includes an `onClick` handler for navigation.
+
+#### `Header.tsx`
+A reusable header with a title and search bar for filtering Pokémon.
+
+#### `Pagination.tsx`
+Handles navigation between pages using "Next" and "Previous" buttons.
+
+### Pages
+#### `Home.tsx`
+- Fetches and displays a list of Pokémon.
+- Implements search, filter, and pagination.
+- Uses the `PokemonCard`, `Header`, and `Pagination` components.
+
+#### `PokemonDetails.tsx`
+- Fetches and displays detailed Pokémon information such as stats and abilities.
+- Provides a back button for returning to the home page.
+
+### Services
+#### `pokemonAPI.ts`
+Handles API requests to the PokéAPI. Includes functions for fetching Pokémon list and details.
+
+### Utils
+#### `localStorage.ts`
+Manages local storage for saving and retrieving favorite Pokémon.
+
+### Hooks
+#### `useFetchPokemon.ts`
+Custom hook to handle Pokémon list fetching with loading state management.
+
+---
+
+## Running the Application
+1. **Development Mode**:
+   Run the app locally with live reloading:
+   ```bash
+   npm start
+   ```
+
+2. **Production Build**:
+   Generate a production build for deployment:
+   ```bash
+   npm run build
+   ```
+
+3. **Deployment**:
+   Deploy to platforms like **Vercel** or **Netlify**. For example, with Vercel:
+   ```bash
+   npx vercel deploy
+   ```
+
+---
+
+## Future Enhancements
+- Implement infinite scrolling for smoother user experience.
+- Add a dark mode toggle for better accessibility.
+- Enhance filtering options (e.g., multiple types).
+- Allow user authentication for saving favorites on the cloud.
+
+---
+
+Feel free to explore the code and contribute to improving the application!
